@@ -1,0 +1,38 @@
+def main():
+
+    print("## Welcome to Book Creation Crew!")
+    print("--------------------------------")
+
+    book_crew = BookCrew1()
+    crew1_result = book_crew.run()
+
+    print("\n\n########################")
+    print("## Here is your Book Summary from Crew1:")
+    print("########################\n")
+    print(crew1_result)
+    
+    with open("book_summary.txt", "a") as file:
+            file.write("\n\n########################\n")
+            file.write("## Crew1 Result:\n")
+            file.write("########################\n")
+            file.write(crew1_result)
+
+  
+    print("\n\n########################")
+    print(" -------------------------")
+    print("########################\n")
+    
+    user_input = input("Please provide your feedback for book writing agents:")
+
+    with open('complete_book.txt', 'w') as f:
+        sys.stdout = f
+        chapter_writer_crew = BookCrew2()
+        result = chapter_writer_crew.run()
+        print("\n\n########################")
+        print("## Here is your Book crew run result:")
+        print("########################\n")
+        print(result)
+        sys.stdout = sys.__stdout__
+
+if __name__ == "__main__":
+    main()
